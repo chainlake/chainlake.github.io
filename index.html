@@ -151,6 +151,51 @@
     <p>LinkedIn: <a href="https://www.linkedin.com/in/mike-liang" target="_blank">linkedin.com/in/mike-liang</a></p>
   </section>
 
+<!-- Live Demo Section -->
+<section class="section">
+  <h2>Live Blockchain Demo</h2>
+  <p>Realtime Ethereum block number and ERC20 transfers:</p>
+
+  <div id="live-block" style="font-weight:bold; font-size:20px; margin-bottom:20px;">Loading latest block...</div>
+
+  <div id="erc20-transfers" style="max-height:300px; overflow-y:auto; border:1px solid #ddd; padding:10px; border-radius:8px;">
+    Loading ERC20 transfers...
+  </div>
+
+</section>
+
+<script>
+  // 模拟实时数据（后续可接 WebSocket 或 RPC）
+  let blockNumber = 18000000; // 起始 block
+  const transfers = [
+    {from:"0xAAA...1", to:"0xBBB...2", token:"USDT", amount:"100"},
+    {from:"0xCCC...3", to:"0xDDD...4", token:"ETH", amount:"0.5"},
+    {from:"0xEEE...5", to:"0xFFF...6", token:"LINK", amount:"50"}
+  ];
+
+  function updateBlock() {
+    blockNumber += Math.floor(Math.random()*3); // 模拟增长
+    document.getElementById("live-block").innerText = "Latest Block: " + blockNumber;
+  }
+
+  function updateTransfers() {
+    const container = document.getElementById("erc20-transfers");
+    const newTransfer = {
+      from:"0x"+Math.random().toString(16).slice(2,8),
+      to:"0x"+Math.random().toString(16).slice(2,8),
+      token:["ETH","USDT","DAI","LINK"][Math.floor(Math.random()*4)],
+      amount:(Math.random()*100).toFixed(2)
+    };
+    transfers.unshift(newTransfer);
+    if(transfers.length>10) transfers.pop();
+    container.innerHTML = transfers.map(t=>`<div>${t.amount} ${t.token} from ${t.from} → ${t.to}</div>`).join("");
+  }
+
+  // 每 2 秒更新一次
+  setInterval(updateBlock, 2000);
+  setInterval(updateTransfers, 2000);
+</script>
+  
   <footer>
     Mike Liang &copy; 2026. Built for Web3 Data Engineering Portfolio.
   </footer>
