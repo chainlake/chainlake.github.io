@@ -4,162 +4,257 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ChainLake | Blockchain Data Infrastructure</title>
+
 <style>
 body{
 margin:0;
-font-family:Arial,sans-serif;
-background:#fff;
+font-family:Inter,Arial,sans-serif;
+background:#ffffff;
 color:#111;
 line-height:1.6;
 }
-.container{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-}
-header{
+
+.hero{
+background:linear-gradient(180deg,#0a0a0a 0%,#111827 100%);
+color:white;
+padding:120px 20px;
 text-align:center;
-padding:80px 0;
 }
-h1{
-font-size:48px;
-margin-bottom:10px;
+
+.hero h1{
+font-size:64px;
+margin-bottom:12px;
+font-weight:700;
+letter-spacing:-2px;
 }
-.subtitle{
-font-size:20px;
-color:#555;
-margin-bottom:30px;
+
+.hero p{
+font-size:22px;
+color:#d1d5db;
+max-width:760px;
+margin:auto;
 }
+
+.hero-buttons{
+margin-top:35px;
+}
+
 .btn{
 display:inline-block;
-padding:12px 24px;
-margin:10px;
-border:1px solid #111;
+padding:12px 26px;
+margin:8px;
+border-radius:8px;
 text-decoration:none;
-color:#111;
-border-radius:6px;
+font-weight:500;
 }
+
+.btn-primary{
+background:white;
+color:black;
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+padding:90px 20px;
+}
+
 .section{
-margin-top:100px;
+margin-bottom:100px;
 }
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-.card{
-border:1px solid #ddd;
-padding:24px;
-border-radius:10px;
-}
-h2{
-font-size:30px;
+
+.section h2{
+font-size:36px;
 margin-bottom:20px;
 }
-.live-box{
-border:1px solid #ddd;
-padding:20px;
-border-radius:10px;
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
 }
+
+.card{
+background:white;
+border:1px solid #e5e7eb;
+padding:28px;
+border-radius:18px;
+transition:all 0.25s ease;
+box-shadow:0 4px 12px rgba(0,0,0,0.04);
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+.card h3{
+margin-top:0;
+font-size:22px;
+}
+
+.arch{
+font-size:24px;
+padding:25px;
+background:#f9fafb;
+border-radius:14px;
+border:1px solid #e5e7eb;
+}
+
+.live{
+background:#0f172a;
+color:#e2e8f0;
+padding:28px;
+border-radius:18px;
+font-family:monospace;
+}
+
+.live-item{
+margin-top:10px;
+font-size:16px;
+}
+
+.founder{
+background:#f9fafb;
+padding:40px;
+border-radius:18px;
+}
+
 footer{
-margin-top:120px;
 text-align:center;
+padding:60px;
 color:#777;
-padding-bottom:40px;
 }
 </style>
 </head>
 <body>
 
+<section class="hero">
+<h1>ChainLake</h1>
+<p>Realtime blockchain ingestion, semantic transformation, and analytics infrastructure for multi-chain data.</p>
+
+<div class="hero-buttons">
+<a class="btn btn-primary" href="https://github.com/chainlake">GitHub</a>
+<a class="btn btn-secondary" href="#architecture">Architecture</a>
+</div>
+</section>
+
 <div class="container">
 
-<header>
-<h1>ChainLake</h1>
-<div class="subtitle">Realtime Blockchain Data Infrastructure</div>
-<a class="btn" href="https://github.com/chainlake">GitHub</a>
-<a class="btn" href="#architecture">Architecture</a>
-</header>
-
 <section class="section">
-<h2>Core Product</h2>
+<h2>Product Core</h2>
+
 <div class="grid">
+
 <div class="card">
 <h3>Unified RPC Layer</h3>
-<p>Retry, failover, multi-RPC rotation, reorg-safe ingestion across multiple chains.</p>
+<p>Retry, failover, multi-provider rotation, websocket support, and reorg-safe ingestion across multiple chains.</p>
 </div>
+
 <div class="card">
 <h3>Streaming Pipeline</h3>
-<p>Ethereum ETL → Kafka → Flink for real-time transformation and semantic decoding.</p>
+<p>eRPC → ETL → Kafka → Flink for high-throughput real-time blockchain event processing.</p>
 </div>
+
 <div class="card">
 <h3>Analytics Engine</h3>
-<p>ClickHouse-powered dashboards for large-scale blockchain analytics.</p>
+<p>ClickHouse-powered analytical serving layer for dashboards, BI, and semantic queries.</p>
 </div>
+
 </div>
 </section>
 
 <section class="section" id="architecture">
 <h2>Architecture</h2>
-<p>
-eRPC → ETL → Kafka → Flink → ClickHouse
-</p>
-<p>
-Realtime ingestion, transformation, semantic decoding, and analytics.
+
+<div class="arch">
+eRPC → Ethereum ETL → Kafka → Flink → ClickHouse
+</div>
+
+<p style="margin-top:20px;color:#555;">
+Built for realtime block, transaction, receipt(log), trace, and semantic decode pipelines.
 </p>
 </section>
 
 <section class="section">
-<h2>Live Demo</h2>
-<div class="live-box">
-<div id="live-block">Latest Block: Loading...</div>
-<div id="erc20-transfers" style="margin-top:20px;"></div>
+<h2>Live Stream Demo</h2>
+
+<div class="live">
+<div id="block">Latest Block: loading...</div>
+<div id="tx1" class="live-item"></div>
+<div id="tx2" class="live-item"></div>
+<div id="tx3" class="live-item"></div>
 </div>
 </section>
 
 <section class="section">
 <h2>Built by Mike Liang</h2>
-<p>
-Data Engineer focused on blockchain data infrastructure, real-time analytics, and scalable data systems.
-</p>
-</section>
 
-<section class="section">
-<h2>Technical Skills</h2>
-<div class="grid">
-<div class="card">Blockchain Data</div>
-<div class="card">Kafka / Flink / ClickHouse</div>
-<div class="card">Python / Rust</div>
-<div class="card">Kubernetes / Cloud</div>
+<div class="founder">
+<p>
+Data Engineer focused on blockchain data infrastructure, realtime analytics, and scalable analytical systems.
+</p>
+
+<p>
+Strong in Kafka, Flink, ClickHouse, Python, Rust, Kubernetes, and Web3 data architecture.
+</p>
 </div>
 </section>
 
 <section class="section">
 <h2>Selected Projects</h2>
+
 <div class="grid">
-<div class="card">ChainLake</div>
-<div class="card">Ethereum ETL Pipeline</div>
-<div class="card">Web3 Analytics Dashboard</div>
+
+<div class="card">
+<h3>ChainLake</h3>
+<p>Blockchain-native data infrastructure for realtime ingestion and analytics.</p>
+</div>
+
+<div class="card">
+<h3>Ethereum ETL Pipelines</h3>
+<p>Realtime ingestion pipelines for blocks, logs, traces, and contract events.</p>
+</div>
+
+<div class="card">
+<h3>Web3 Analytics Dashboard</h3>
+<p>Interactive dashboards for token flows, wallets, and protocol analytics.</p>
+</div>
+
 </div>
 </section>
+
+</div>
 
 <footer>
 Mike Liang © 2026
 </footer>
 
-</div>
-
 <script>
-let block = 18000000;
+let block=18000000;
+
+function randHex(){
+return "0x"+Math.random().toString(16).slice(2,10);
+}
+
 function update(){
 block += Math.floor(Math.random()*3);
-document.getElementById("live-block").innerText="Latest Block: "+block;
-document.getElementById("erc20-transfers").innerHTML=
-Math.random().toFixed(2)+" ETH transferred";
+
+document.getElementById("block").innerText="Latest Block: "+block;
+
+document.getElementById("tx1").innerText=randHex()+" → "+randHex()+" | 2.14 ETH";
+document.getElementById("tx2").innerText=randHex()+" → "+randHex()+" | 135 USDT";
+document.getElementById("tx3").innerText=randHex()+" → "+randHex()+" | 42 LINK";
 }
+
 setInterval(update,2000);
 update();
 </script>
 
 </body>
 </html>
-```
