@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChainLake</title>
+  <title>Mike Liang - Web3 Data Portfolio</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #111111;
+      background: #fefefe;
+      color: #111;
       line-height: 1.6;
     }
 
@@ -19,44 +19,33 @@
       padding: 60px 20px;
     }
 
-    .hero {
+    header {
       text-align: center;
-      padding: 100px 20px;
+      padding-bottom: 60px;
     }
 
-    .logo {
-      font-size: 42px;
+    .name {
+      font-size: 36px;
       font-weight: bold;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
     }
 
-    .subtitle {
-      font-size: 20px;
-      margin-top: 20px;
+    .title {
+      font-size: 18px;
       color: #555;
-    }
-
-    .buttons {
-      margin-top: 40px;
-    }
-
-    .buttons a {
-      text-decoration: none;
-      border: 1px solid #111;
-      padding: 12px 24px;
-      margin: 10px;
-      display: inline-block;
-      color: #111;
-      border-radius: 6px;
+      margin-top: 10px;
     }
 
     .section {
-      margin-top: 100px;
+      margin-top: 80px;
     }
 
-    .section h2 {
+    h2 {
       font-size: 28px;
       margin-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+      display: inline-block;
+      padding-bottom: 4px;
     }
 
     .grid {
@@ -69,15 +58,27 @@
       border: 1px solid #ddd;
       padding: 24px;
       border-radius: 10px;
+      background: #fff;
+      transition: 0.3s;
     }
 
-    .architecture {
-      background: #f8f8f8;
-      padding: 30px;
-      border-radius: 12px;
-      font-family: monospace;
-      font-size: 18px;
-      text-align: center;
+    .card:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    a {
+      color: #1a73e8;
+      text-decoration: none;
     }
 
     footer {
@@ -90,80 +91,69 @@
   </style>
 </head>
 <body>
-
 <div class="container">
 
-  <section class="hero">
-    <div class="logo">CHAINLAKE</div>
-    <div class="subtitle">
-      Real-time blockchain lakehouse infrastructure.
+  <!-- Header -->
+  <header>
+    <div class="name">Mike Liang</div>
+    <div class="title">Web3 Data Engineer | Real-time Analytics | Blockchain Infrastructure</div>
+    <div style="margin-top:20px;">
+      <a href="https://github.com/chainlake" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/mike-liang" target="_blank">LinkedIn</a>
     </div>
+  </header>
 
-    <div class="buttons">
-      <a href="https://github.com/chainlake">View on GitHub</a>
-      <a href="#architecture">Architecture</a>
-    </div>
-  </section>
-
+  <!-- About Me -->
   <section class="section">
-    <h2>Capabilities</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>Ingestion</h3>
-        <p>Reliable blockchain extraction with multi-RPC failover, retry and reorg awareness.</p>
-      </div>
-
-      <div class="card">
-        <h3>Stream Processing</h3>
-        <p>Real-time semantic transformation using event-driven pipelines.</p>
-      </div>
-
-      <div class="card">
-        <h3>Analytics</h3>
-        <p>High-performance analytical serving for blockchain workloads.</p>
-      </div>
-
-    </div>
+    <h2>About Me</h2>
+    <p>
+      I am a Data Engineer specializing in Web3 blockchain data pipelines, real-time processing, and analytics.  
+      I build end-to-end solutions including blockchain ingestion, semantic transformation, and high-performance analytical warehouses.
+    </p>
   </section>
 
-  <section class="section" id="architecture">
-    <h2>Architecture</h2>
-
-    <div class="architecture">
-      RPC → Kafka → Flink → ClickHouse
-    </div>
-  </section>
-
+  <!-- Skills -->
   <section class="section">
-    <h2>Modules</h2>
-
+    <h2>Technical Skills</h2>
     <div class="grid">
-
-      <div class="card">
-        <h3>chainlake-ingest</h3>
-        <p>Raw block, transaction, log and trace extraction.</p>
-      </div>
-
-      <div class="card">
-        <h3>chainlake-stream</h3>
-        <p>Semantic decoding and real-time computation.</p>
-      </div>
-
-      <div class="card">
-        <h3>chainlake-analytics</h3>
-        <p>Analytical warehouse and BI serving layer.</p>
-      </div>
-
+      <div class="card"><h3>Blockchain</h3><p>Ethereum, BSC, Multi-chain RPC, Smart Contract Decoding</p></div>
+      <div class="card"><h3>Data Engineering</h3><p>Kafka, Flink, Spark, ETL, Delta / Parquet</p></div>
+      <div class="card"><h3>Analytics & BI</h3><p>ClickHouse, Metabase, Power BI, Recharts, D3.js</p></div>
+      <div class="card"><h3>Programming</h3><p>Python, Rust, SQL, Move, Shell scripting</p></div>
+      <div class="card"><h3>Cloud & DevOps</h3><p>Docker, K8s, Airflow, MinIO, Cloudflare, GitHub Actions</p></div>
     </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>ChainLake (Web3 Data Infra)</h3>
+        <p>End-to-end blockchain data lakehouse: RPC ingestion → Kafka → Flink → ClickHouse → BI dashboards.</p>
+        <p><a href="https://github.com/chainlake" target="_blank">GitHub Repo</a></p>
+      </div>
+      <div class="card">
+        <h3>Ethereum ETL / Arbitrage Bot</h3>
+        <p>Realtime ETL pipelines and multi-chain arbitrage bot prototyping using Python & Rust SDKs.</p>
+      </div>
+      <div class="card">
+        <h3>Web3 Analytics Dashboards</h3>
+        <p>Interactive dashboards built with Metabase, Recharts & D3.js for multi-chain token flows & transactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:mike.liang@example.com">mike.liang@example.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/mike-liang" target="_blank">linkedin.com/in/mike-liang</a></p>
   </section>
 
   <footer>
-    ChainLake — Build blockchain data systems like modern lakehouses.
+    Mike Liang &copy; 2026. Built for Web3 Data Engineering Portfolio.
   </footer>
-
 </div>
-
 </body>
 </html>
